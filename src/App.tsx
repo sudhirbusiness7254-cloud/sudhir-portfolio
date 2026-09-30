@@ -1,6 +1,7 @@
 import Nav from "@/components/Nav";
 import ProfileHero from "@/components/ProfileHero";
 import About from "@/components/About";
+import TechnicalExpertise from "@/components/TechnicalExpertise";
 import ExperienceSection from "@/components/ExperienceSection";
 import Hero from "@/components/Hero";
 import Ticker from "@/components/Ticker";
@@ -27,6 +28,7 @@ export default function App() {
       <main>
         <ProfileHero />
         <About />
+        <TechnicalExpertise />
         <ExperienceSection />
         <Hero />
         <Ticker />

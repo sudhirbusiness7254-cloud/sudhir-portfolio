@@ -4,11 +4,13 @@ import { cn } from "@/utils/cn";
 import { GitHubIcon, LiveIcon } from "@/components/ui";
 
 const links = [
-  { id: "overview", label: "Overview" },
+  { id: "about", label: "About" },
+  { id: "skills", label: "Skills" },
+  { id: "experience", label: "Experience" },
+  { id: "projects", label: "Project" },
   { id: "preview", label: "Preview" },
-  { id: "features", label: "Features" },
   { id: "devices", label: "Devices" },
-  { id: "screenshots", label: "Screenshots" },
+  { id: "screenshots", label: "Gallery" },
   { id: "repo", label: "GitHub" },
 ];
 

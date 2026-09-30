@@ -154,6 +154,14 @@
     background-size: 44px 44px;
   }
 
+  /* Long category names break cleanly instead of being clipped */
+  .hyphenate {
+    overflow-wrap: break-word;
+    word-break: normal;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+  }
+
   .no-scrollbar::-webkit-scrollbar {
     display: none;
   }

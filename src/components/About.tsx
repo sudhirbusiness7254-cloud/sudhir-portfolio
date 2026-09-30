@@ -1,6 +1,13 @@
-import { profile, skillGroups } from "@/data/profile";
+import { profile } from "@/data/profile";
 import profilePhoto from "@/assets/profile.jpg";
 import { Reveal, SectionHeading } from "@/components/ui";
+
+const focusAreas = [
+  { label: "Frontend Engineering", detail: "React · Next.js · Responsive UI" },
+  { label: "Backend & APIs", detail: "Laravel · PHP · Spring Boot" },
+  { label: "AI / ML & NLP", detail: "Python · scikit-learn · NLP" },
+  { label: "Databases", detail: "MySQL · MongoDB" },
+];
 
 export default function About() {
   return (
@@ -9,14 +16,14 @@ export default function About() {
       <div className="shell">
         <Reveal>
           <SectionHeading
-            eyebrow="About me"
+            eyebrow="01 · About me"
             title="Frontend first, full stack when it matters"
             sub="I care about pixels, performance and people being able to actually use what I build."
           />
         </Reveal>
 
-        <div className="mt-6 grid grid-cols-1 gap-5 sm:mt-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)] lg:gap-8">
-          {/* ---- bio card ---- */}
+        <div className="mt-6 grid grid-cols-1 gap-4 sm:mt-8 lg:grid-cols-[minmax(0,1.25fr)_minmax(0,1fr)] lg:gap-6">
+          {/* ---- bio ---- */}
           <Reveal>
             <article className="card h-full p-4 sm:p-6">
               <div className="flex items-center gap-3.5">
@@ -59,41 +66,36 @@ export default function About() {
                 ))}
               </div>
 
-              <a
-                href={`mailto:${profile.email}`}
-                className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-navy-950 px-4 py-2.5 text-[13px] font-bold text-white transition hover:bg-navy-900 sm:w-auto"
-              >
-                ✉️ Contact me
-              </a>
+              <div className="mt-5 flex flex-col gap-2 sm:flex-row">
+                <a
+                  href={`mailto:${profile.email}`}
+                  className="inline-flex flex-1 items-center justify-center gap-2 rounded-xl bg-navy-950 px-4 py-2.5 text-[13px] font-bold text-white transition hover:bg-navy-900"
+                >
+                  ✉️ Contact me
+                </a>
+                <a
+                  href="#skills"
+                  className="inline-flex flex-1 items-center justify-center gap-2 rounded-xl border border-navy-900/12 bg-white px-4 py-2.5 text-[13px] font-bold text-navy-900 transition hover:border-navy-900/30"
+                >
+                  View skills →
+                </a>
+              </div>
             </article>
           </Reveal>
 
-          {/* ---- skills grid ---- */}
-          <div className="grid grid-cols-1 gap-3 min-[460px]:grid-cols-2">
-            {skillGroups.map((g, i) => (
-              <Reveal key={g.id} delay={i * 55}>
-                <article className="card group h-full p-4 transition hover:-translate-y-1">
-                  <div className="flex items-center gap-2.5">
-                    <span
-                      className="h-8 w-1.5 shrink-0 rounded-full"
-                      style={{ backgroundColor: g.accent }}
-                    />
-                    <h3 className="min-w-0 text-[13px] leading-tight font-extrabold text-navy-950 sm:text-sm">
-                      {g.name}
+          {/* ---- focus areas ---- */}
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-1">
+            {focusAreas.map((f, i) => (
+              <Reveal key={f.label} delay={i * 60}>
+                <article className="card flex h-full items-start gap-3 p-4 transition hover:-translate-y-1">
+                  <span className="mt-0.5 grid h-7 w-7 shrink-0 place-items-center rounded-lg bg-gradient-to-br from-navy-800 to-navy-950 font-mono text-[10px] font-bold text-white">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <div className="min-w-0">
+                    <h3 className="text-[13px] leading-tight font-extrabold text-navy-950 sm:text-sm">
+                      {f.label}
                     </h3>
-                    <span className="ml-auto shrink-0 font-mono text-[10px] text-slate-400">
-                      {g.items.length}
-                    </span>
-                  </div>
-                  <div className="mt-3 flex flex-wrap gap-1.5">
-                    {g.items.map((s) => (
-                      <span
-                        key={s}
-                        className="rounded-lg border border-navy-900/10 bg-white px-2 py-1 text-[11px] font-semibold text-navy-900 transition group-hover:border-navy-900/20"
-                      >
-                        {s}
-                      </span>
-                    ))}
+                    <p className="mt-1 text-[12px] leading-snug text-slate-500">{f.detail}</p>
                   </div>
                 </article>
               </Reveal>
